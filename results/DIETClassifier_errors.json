@@ -1,0 +1,50 @@
+[
+  {
+    "text": "Peux tu faire un call avec Jules |",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "name",
+        "start": 27,
+        "end": 32,
+        "confidence_entity": 0.7519087195396423,
+        "value": "Jules",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "Quelle heure est-il àParis ?",
+    "entities": [
+      {
+        "start": 21,
+        "end": 26,
+        "value": "Paris",
+        "entity": "city"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Combien fait 2 + 2?",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "age_of_son",
+        "start": 13,
+        "end": 14,
+        "confidence_entity": 0.63980633020401,
+        "value": "2",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "age_of_son",
+        "start": 17,
+        "end": 18,
+        "confidence_entity": 0.6728760004043579,
+        "value": "2",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  }
+]

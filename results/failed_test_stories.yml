@@ -1,0 +1,47 @@
+version: "3.1"
+stories:
+- story: happy path 1 (./tests/test_stories.yml)
+  steps:
+  - intent: greet  # predicted: require_time: hello there!
+  - action: utter_greet
+  - intent: mood_great  # predicted: nlu_fallback: amazing
+  - action: utter_happy
+- story: happy path 2 (./tests/test_stories.yml)
+  steps:
+  - intent: greet  # predicted: require_time: hello there!
+  - action: utter_greet
+  - intent: mood_great  # predicted: nlu_fallback: amazing
+  - action: utter_happy
+  - intent: goodbye
+  - action: utter_goodbye
+- story: sad path 1 (./tests/test_stories.yml)
+  steps:
+  - intent: greet  # predicted: nlu_fallback: hello
+  - action: utter_greet
+  - intent: mood_unhappy  # predicted: nlu_fallback: not good
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm  # predicted: goodbye: yes
+  - action: utter_happy
+- story: sad path 2 (./tests/test_stories.yml)
+  steps:
+  - intent: greet  # predicted: nlu_fallback: hello
+  - action: utter_greet
+  - intent: mood_unhappy  # predicted: nlu_fallback: not good
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny  # predicted: nlu_fallback: not really
+  - action: utter_goodbye
+- story: sad path 3 (./tests/test_stories.yml)
+  steps:
+  - intent: greet  # predicted: nlu_fallback: hi
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye
+- story: bot challenge (./tests/test_stories.yml)
+  steps:
+  - intent: bot_challenge  # predicted: nlu_fallback: are you a bot?
+  - action: utter_iamabot

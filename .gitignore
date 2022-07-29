@@ -1,0 +1,10 @@
+*/__pycache__
+models
+GoogleDrive/__pycache__
+.example
+./rasa/cache
+.rasa
+GoogleDrive/credentials.json
+GoogleDrive/token.json
+example
+VideoCall/function-templates/.env

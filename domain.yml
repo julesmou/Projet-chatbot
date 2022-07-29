@@ -1,0 +1,150 @@
+version: '3.1'
+intents:
+- affirm
+- ask_about_self
+- ask_for_picture
+- awnser_test
+- bot_challenge
+- call_sbdy
+- connaitre_les_news
+- deny
+- goodbye
+- greet
+- inquire_info
+- mood_great
+- mood_unhappy
+- nlu_fallback
+- out_of_scope
+- require_time
+- test_my_memory
+entities:
+- age_of_son
+- info
+- name
+- personnality
+- nickname
+- type_of_call
+- city
+- type_of_photo
+slots:
+  type_of_photo:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: type_of_photo
+  city:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: city
+  name:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: name
+  nickname:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: nickname
+      conditions:
+      - active_loop: simple_call_form
+  type_of_call:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: type_of_call
+      conditions:
+      - active_loop: simple_call_form
+  personnality:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: personnality
+  info:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: info
+  age_of_son:
+    type: float
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: age_of_son
+responses:
+  utter_greet:
+  - text: Hey {name}! comment ça va?
+    buttons:
+    - title: great
+      payload: /mood_great
+    - title: bad
+      payload: /mood_unhappy
+  utter_cheer_up:
+  - text: 'Voilà qlq chose pour te redonner de la force:'
+    image: https://i.imgur.com/nGF1K8f.jpg
+  utter_show_call:
+  - text: Vous entrez en relation avec lui
+    image: https://video-9101-5z0st3.twil.io/conference.html
+  utter_show_image:
+  - text: tu trouveras ton bonheur ici
+    image: http://127.0.0.1:5000?filename={type_of_photo}
+  utter_did_that_help:
+  - text: Ca t'a aidé?
+  utter_happy:
+  - text: Top, continue!
+  utter_goodbye:
+  - text: Bye
+  utter_iamabot:
+  - text: Je suis un robot.
+  utter_ask_test:
+  - text: Quel âge a ton fils ?
+  utter_submit:
+  - text: Je vais maintenant appeler quelqu'un pour vous!
+  utter_call_slots:
+  - text: Je vais appeler {nickname} à travers {type_of_call}.
+  utter_ask_type_of_call:
+  - text: Quel type d'appel veux-tu passer?
+  utter_ask_nickname:
+  - text: Qui veux-tu appeler?
+  utter_out_of_scope:
+  - text: Je ne peux pas répondre à cette requête
+  utter_please_rephrase:
+  - text: Je suis désolé, je n'ai pas compris. Pourriez-vous reformuler ?
+actions:
+- action_info
+- action_make_call
+- action_news
+- action_tell_simple_info
+- action_tell_time
+- utter_ask_continue
+- utter_ask_test
+- utter_call_slots
+- utter_cheer_up
+- utter_goodbye
+- utter_greet
+- utter_out_of_scope
+- utter_submit
+- validate_memory_test_form
+- validate_simple_call_form
+- utter_show_image
+forms:
+  simple_call_form:
+    ignored_intents:
+    - greet
+    required_slots:
+    - type_of_call
+    - nickname
+  memory_test_form:
+    required_slots:
+    - age_of_son
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

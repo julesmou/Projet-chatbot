@@ -1,0 +1,153 @@
+version: "3.1"
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - salut mon nom est [Jules](name)
+    - salut, je suis [Jules](name).
+    - salut toi
+    - bonjour, je suis [Jules](name).
+    - bonsoir
+    - allons y
+    - salut mec, mon nom est [Jules](name).
+- intent: goodbye
+  examples: |
+    - a toute
+    - aurevoir
+    - a plus tard
+    - bonne nuit
+    - bye
+    - bisous
+    - passe une bonne journée
+    - on se voit plus tard
+    - bye bye
+    - a plus
+- intent: affirm
+  examples: |
+    - oui
+    - o
+    - en effet
+    - bien sur
+    - ça me semble bon
+    - correct
+- intent: deny
+  examples: |
+    - non
+    - n
+    - jamais
+    - je ne crois pas
+    - je n'aime pas ça
+    - jamais de la vie
+    - pas vraiment
+- intent: mood_great
+  examples: |
+    - parfait
+    - génial
+    - incroyable
+    - se sentir comme un roi
+    - magnifique
+    - je me sens très bien
+    - je suis bien
+    - je suis très en forme
+    - je vais sauver le monde
+    - très bien
+    - vraiment parfait
+- intent: mood_unhappy
+  examples: |
+    - ma journée était horrible
+    - je suis triste
+    - je ne me sens pas très bien
+    - je suis déçu
+    - très triste
+    - je suis tritse
+    - triste
+    - malheureux
+    - pas content
+    - pas très content
+    - extrêmement triste
+- intent: mood_laught
+  examples: |
+    - make me laught
+    - make me a joke
+- intent: bot_challenge
+  examples: |
+    - es tu bot?
+    - es tu un humain?
+    - suis-je entrain de parler à un robot?
+    - suis-je entrain de parler à un humain?
+- intent: inquire_info
+  examples: |
+    - Qui est [Emmanuel Macron](personnality)?
+    - Parle moi de [Marine Le Pen](personnality).
+    - Pourquoi [Jean-Luc Mélanchon](personnality) est célèbre.
+    - Qui est [Kyllian Mbappé](personnality)?
+    - Parle moi de [Victor Hugo](personnality).
+- intent: ask_about_self
+  examples: |
+    - Peux ty me rappeler mon [email](info) ?
+    - Quel est mon [address](info) ?
+    - Quel [age](info) j'ai ?
+    - Peux tu me donner mon [telephone](info) ?
+    - Quel âge j'ai ?[]{"entity": "info", "value": "age"}
+- intent: call_sbdy
+  examples: |
+    - J'aimerais appeler quelqu'un
+    - Puis-je appeler mon fils
+    - Peux tu faire un call avec Jules |
+    - [Jules](nickname) stp
+    - Appelle [Jules](nickname)
+    - Appel [Samuel](nickname) s'il te plait
+    - Passe moi [Tanel](nickname) au téléphone
+    - [vocal](type_of_call) stp
+    - Un [facetime](type_of_call) s'il te plaît.
+- intent: test_my_memory
+  examples: |
+    - vérifie l'état de ma mémoire
+    - Je deviens fou ?
+- intent: awnser_test
+  examples: |
+    - Il a [33](age_of_son) ans.
+    - Il a [33](age_of_son) ans
+- intent: connaitre_les_news
+  examples: |
+    - Quelle est l'actualité
+    - Que se passe-t-il dans le monde en ce moment ?
+    - Quoi de neuf ?
+- intent: require_time
+  examples: |
+    - Peux- tu me donner l'heure à [Amsterdam](city) ?
+    - Quelle heure est-il à[Paris](city) ?
+    - Quelle heure est-il ?
+    - il est quelle heure ?
+    - Tu connais l'heure à [Moscow](city)?
+    - Quelle est l'heure à [Beirut](city)?
+    - heure à [Damas](city)?
+    - heure à [Jerusalem](city)?
+- intent: out_of_scope
+  examples: |
+    - Je veux commander à manger
+    - Combien fait 2 + 2?
+    - Qui est le président des états-unis ?
+    - je veux commander à manger
+    - Combien fait [2+2](age_of_son)?
+    - Combien fait [2+2](age_of_son)
+- intent: ask_for_picture
+  examples: |
+    - Montre moi la photo des [chiens](type_of_photo)
+    - Montre moi des souvenirs de [girls](type_of_photo)
+    - Montre moi une photo de [landscapes](type_of_photo)
+- intent: nlu_fallback
+  examples: |
+    - tu joues à fifa ?
+- lookup: nickname
+  examples: |
+    - Jules
+    - Samuel
+    - Tanel
+- lookup: personnality
+  examples: |
+    - Emmanuel Macron
+    - Kyllian Mbappé
+    - Jean Luc Mélanchon
+    - Marine Le Pen
+    - Victor Hugo

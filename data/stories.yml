@@ -1,0 +1,141 @@
+version: "3.1"
+
+stories:
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye
+
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: call_sbdy
+  - action: simple_call_form
+  - active_loop: simple_call_form
+  - slot_was_set:
+    - requested_slot: type_of_call
+  - slot_was_set:
+    - type_of_call: vocal
+  - slot_was_set:
+    - type_of_call: vocal
+  - slot_was_set:
+    - type_of_call: nickname
+  - slot_was_set:
+    - nickname: jules
+  - slot_was_set:
+    - nickname: null
+  - slot_was_set:
+    - requested_slot: nickname
+  - slot_was_set:
+    - nickname: jules
+  - slot_was_set:
+    - nickname: null
+  - slot_was_set:
+    - requested_slot: nickname
+  - slot_was_set:
+    - nickname: jules
+  - slot_was_set:
+    - nickname: jules
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_submit
+  - action: utter_call_slots
+  - action: validate_simple_call_form
+  - action: utter_show_call
+  - action: action_make_call
+  - intent: goodbye
+  - action: utter_goodbye
+
+
+
+- story: interactive_story_2
+  steps:
+  - intent: test_my_memory
+  - action: utter_ask_test
+  - intent: awnser_test
+  - action: memory_test_form
+  - active_loop: memory_test_form
+  - slot_was_set:
+    - requested_slot: age_of_son
+  - slot_was_set:
+    - age_of_son: 33
+  - action: validate_memory_test_form
+ 
+
+
+
+
+
+
+
+
+
+- story: interactive_story_3
+  steps:
+  - intent: out_of_scope
+  - action: utter_out_of_scope
+
+- story: interactive_story_1
+  steps:
+  - intent: out_of_scope
+  - action: utter_out_of_scope
+
+
+- story: interactive_story_1
+  steps:
+  - intent: out_of_scope
+    entities:
+    - age_of_son: 2+2
+  - action: utter_out_of_scope
+  - intent: out_of_scope
+    entities:
+    - age_of_son: 2+2
+  - action: utter_out_of_scope
+
+- story: interactive_story_1
+  steps:
+  - intent: ask_about_self
+    entities:
+    - info: age
+  - action: action_tell_simple_info
+
+- story: interactive_story_1
+  steps:
+  - intent: test_my_memory
+  - action: utter_ask_test
+  - intent: awnser_test
+    entities:
+    - age_of_son: '33'
+  - action: memory_test_form
+  - active_loop: memory_test_form
+  - slot_was_set:
+    - age_of_son: '33'
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: validate_memory_test_form

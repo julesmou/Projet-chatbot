@@ -1,0 +1,18 @@
+[
+  {
+    "text": "je ne me sens pas très bien",
+    "intent": "mood_unhappy",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.3738509714603424
+    }
+  },
+  {
+    "text": "tu joues à fifa ?",
+    "intent": "nlu_fallback",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.12806449830532074
+    }
+  }
+]

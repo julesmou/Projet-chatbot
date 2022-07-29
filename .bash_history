@@ -1,0 +1,2 @@
+rasa init
+exit

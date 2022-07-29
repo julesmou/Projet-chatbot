@@ -1,0 +1,16 @@
+soit une page obtenue par :
+    page_py = wiki_wiki.page('whatever')
+
+get url :
+    url = page_py.fullurl
+    canonical_url = page_py.canonical_url
+
+
+get text:
+    page_py.text
+
+get summary:
+    page_py.summary
+
+get sections:
+    page_py.sections

@@ -1,0 +1,15 @@
+arrow==1.2.2
+dateparser==1.1.1
+Flask==2.1.2
+geopy==2.2.0
+google-api-core==2.8.2
+google-api-python-client==2.52.0
+news-api==1.1.0
+newsapi==0.1.1
+newsapi-python==0.2.6
+numba==0.55.2
+timezonefinder==6.0.2
+tzlocal==2.1
+tzwhere==3.0.3
+Wikipedia-API==0.5.4
+
